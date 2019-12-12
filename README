@@ -1,0 +1,38 @@
+#################################################
+Material for the DL session @ IBS-Particle-Physics-in-Computing-Frontier
+
+#####
+to get the slides presentation:
+$cd presentation/
+$jupyter nbconvert apresentacao.ipynb --to slides --post serve
+
+#####
+Getting Set Up
+Step 1: Accessing Colab
+
+    First of all you should sign in to you Google account if you are not signed in by default. You must do this step before opening Colab, otherwise the notebooks will not work. 
+    Next, head on to the Colab Welcome Page and click on ‘Github’. In the ‘Enter a GitHub URL:
+    https://github.com/FFFreitas/IBS-Particle-Physics-in-Computing-Frontier
+
+select the Leson_1_FastAI.ipynb
+
+
+#####
+To set up a local environment with anaconda:
+creat an environment with the command
+conda create -n FastAI-v1 python=3.6
+install:
+conda install -c pytorch -c fastai fastai
+
+This will install the pytorch build with the latest cudatoolkit version. If you need a higher or lower CUDA XX build (e.g. CUDA 9.0), following the instructions in https://pytorch.org/get-started/locally/
+to install the desired pytorch build.
+
+Note that JPEG decoding can be a bottleneck, particularly if you have a fast GPU. You can optionally install an optimized JPEG decoder as follows (Linux):
+
+conda uninstall --force jpeg libtiff -y
+conda install -c conda-forge libjpeg-turbo pillow==6.0.0
+CC="cc -mavx2" pip install --no-cache-dir -U --force-reinstall --no-binary :all: --compile pillow-simd
+
+or clone the environment
+
+conda create -f FastAI_V1.yml
